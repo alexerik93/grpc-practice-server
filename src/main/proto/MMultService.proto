@@ -1,0 +1,21 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package com.example.grpc.server.grpcserver;
+
+message Row {
+	repeated int32 val = 1;
+}
+
+message MMultRequest {
+
+	repeated Row matrixA = 1;
+	repeated Row matrixB = 2;
+}
+
+message MMultResponse {
+	repeated Row matrixC = 1;
+}
+
+service MMultService {
+	rpc mmult(MMultRequest) returns (MMultResponse);
+}
